@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    container_name: cache_api
+    build: api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    container_name: redisdb
+    build: db
+    ports:
+      - "6379:6379"
+    # volumes:
+    #   - .data:/data
